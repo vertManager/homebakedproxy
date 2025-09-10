@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>homebaked</title>
+</head>
+<body>
+    <h1>homebaked</h1>
+    <input id="url-field" type="text" placeholder="url goes here...">
+    <input id="go-button" type="button" value="Go">
+    <pre id="result" style="white-space: pre-wrap;"></pre>
+    <script>
+    document.getElementById('go-button').onclick = function() {
+        const url = document.getElementById('url-field').value.trim();
+        if (!url) {
+            document.getElementById('result').textContent = 'Please enter a URL.';
+            return;
+        }
+        window.location.href = '/sites/' + encodeURIComponent(url);
+    };
+    </script>
+</body>
+</html>
